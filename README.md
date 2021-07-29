@@ -112,7 +112,7 @@ Wait for metallb pods to have a status of Running
 ```bash
 kubectl get pods -n metallb-system --watch
 ```
-# 6.TESTINNG TIME
+# 6.Testing time
 ```bash
 k create deploy nginx --image nginx
 k get pods  --watch

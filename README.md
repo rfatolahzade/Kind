@@ -1,13 +1,13 @@
 # Kind
 Quick Start to run and deploy sample project by using kind
 Just in 6 Steps:
-# 1.Installation
+# Installation
 ```bash 
 curl -Lo ./kind https://kind.sigs.k8s.io/dl/v0.11.1/kind-linux-amd64
 chmod +x ./kind
 mv ./kind /usr/local/bin/
 ```
-# 2.Creating a Cluster
+# Creating a Cluster
 Creating a Kubernetes cluster is as simple as
 ```bash 
 kind create cluster
@@ -36,7 +36,7 @@ k get nodes --context kind-kind     #USE WHEN U HAVE MORE THAN ONE CLUSTER
 #TO SWITCH BETWWEN CLUSTERS: k config use-context kind-kind
 
 ```
-# 3.Creating cluster with a worker
+# Creating cluster with a worker
 Delete old cluster and run :
 ```bash 
 vim /tmp/kind.yml
@@ -72,7 +72,7 @@ k get pods -A
 
 k get sc 
 ```
-# 4.Add a Loadblancer (Metallb)
+# Add a Loadblancer (Metallb)
 ```bash
 kubectl apply -f https://raw.githubusercontent.com/metallb/metallb/master/manifests/namespace.yaml
 kubectl create secret generic -n metallb-system memberlist --from-literal=secretkey="$(openssl rand -base64 128)" 
@@ -82,7 +82,7 @@ Wait for Ready state:
 ```bash
 kubectl get pods -n metallb-system --watch
 ```
-# 5.Configure Metallb
+# Configure Metallb
 Setup address pool used by loadbalancers:
 To complete layer2 configuration, we need to provide metallb a range of IP addresses it controls. We want this range to be on the docker kind network.
 ```bash
@@ -112,7 +112,7 @@ Wait for metallb pods to have a status of Running
 ```bash
 kubectl get pods -n metallb-system --watch
 ```
-# 6.Testing time
+# Testing time
 ```bash
 k create deploy nginx --image nginx
 k get pods  --watch

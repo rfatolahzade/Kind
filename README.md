@@ -1,4 +1,4 @@
-# KinD
+# Kind
 Quick Start to run and deploy sample project by using kind
 Just in 6 Steps:
 # 1.Installation
